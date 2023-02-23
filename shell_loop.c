@@ -47,10 +47,9 @@ return (builtin_ret);
 * Return: -1 if builtin not found,
 * 	0 if builtin executed successfully,
 * 	1 if builtin found but not successful,
-* 	2 if builtin signals exit()
+* 	2 if builtin signals exit(),
 */
-int find_builtin(info_t *info)
-{
+int find_builtin(info_t *info){
 int i, built_in_ret = -1;
 builtin_table builtintbl[] = {
 {"exit", _myexit},{"env", _myenv},{"help", _myhelp},
