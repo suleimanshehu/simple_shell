@@ -36,7 +36,7 @@ for (k = 0; k < j; k++)
 free(s[k]);
 free(s);
 return (NULL);
-}77
+}
 for (m = 0; m < k; m++)
 s[j][m] = str[i++];
 s[j][m] = 0;
