@@ -61,7 +61,11 @@ if ((str[i] != d && str[i + 1] == d) ||
 numwords++;
 if (numwords == 0)
 return (NULL);
+<<<<<<< HEAD
 s = malloc((1 + numwords) *sizeof(char *));6
+=======
+s = malloc((1 + numwords) *sizeof(char *));
+>>>>>>> 0e43243acdc6d58ca914331ff09d2b3a82d5b366
 if (!s)
 return (NULL);
 for (i = 0, j = 0; j < numwords; j++)
