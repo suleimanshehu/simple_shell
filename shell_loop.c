@@ -1,5 +1,4 @@
 #include "shell.h"
-
 /**
 * hsh - main shell loop
 * @info: the parameter & return info struct
@@ -11,7 +10,6 @@ int hsh(info_t *info, char **av)
 {
 ssize_t r = 0;
 int builtin_ret = 0;
-
 while (r != -1 && builtin_ret != -2)
 {
 clear_info(info);
@@ -42,7 +40,6 @@ exit(info->err_num);
 }
 return (builtin_ret);
 }
-
 /**
 * find_builtin - finds a builtin command
 * @info: the parameter & return info struct
@@ -56,9 +53,7 @@ int find_builtin(info_t *info)
 {
 int i, built_in_ret = -1;
 builtin_table builtintbl[] = {
-{"exit", _myexit},
-{"env", _myenv},
-{"help", _myhelp},
+{"exit", _myexit},{"env", _myenv},{"help", _myhelp},
 {"history", _myhistory},
 {"setenv", _mysetenv},
 {"unsetenv", _myunsetenv},
@@ -66,7 +61,6 @@ builtin_table builtintbl[] = {
 {"alias", _myalias},
 {NULL, NULL}
 };
-
 for (i = 0; builtintbl[i].type; i++)
 if (_strcmp(info->argv[0], builtintbl[i].type) == 0)
 {
@@ -76,7 +70,6 @@ break;
 }
 return (built_in_ret);
 }
-
 /**
 * find_cmd - finds a command in PATH
 * @info: the parameter & return info struct
@@ -87,7 +80,6 @@ void find_cmd(info_t *info)
 {
 char *path = NULL;
 int i, k;
-
 info->path = info->argv[0];
 if (info->linecount_flag == 1)
 {
@@ -99,7 +91,6 @@ if (!is_delim(info->arg[i], " \t\n"))
 k++;
 if (!k)
 return;
-
 path = find_path(info, _getenv(info, "PATH="), info->argv[0]);
 if (path)
 {
@@ -118,7 +109,6 @@ print_error(info, "not found\n");
 }
 }
 }
-
 /**
 * fork_cmd - forks a an exec thread to run cmd
 * @info: the parameter & return info struct
@@ -128,7 +118,6 @@ print_error(info, "not found\n");
 void fork_cmd(info_t *info)
 {
 pid_t child_pid;
-
 child_pid = fork();
 if (child_pid == -1)
 {
