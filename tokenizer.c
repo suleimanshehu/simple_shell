@@ -22,13 +22,14 @@ return (NULL);
 s = malloc((1 + numwords) *sizeof(char *));
 if (!s)
 return (NULL);
-for (i = 0, j = 0; j < numwords; j++){
+for (i = 0, j = 0; j < numwords; j++)
+{
 while (is_delim(str[i], d))
 i++;
 k = 0;
 while (!is_delim(str[i + k], d) && str[i + k])
 k++;
-s[j] = malloc((k + 1) *sizeof(char));
+s[j] = malloc((k + 1) * sizeof(char));
 if (!s[j])
 {
 for (k = 0; k < j; k++)
@@ -62,9 +63,9 @@ numwords++;
 if (numwords == 0)
 return (NULL);
 <<<<<<< HEAD
-s = malloc((1 + numwords) *sizeof(char *));6
-=======
-s = malloc((1 + numwords) *sizeof(char *));
+s = malloc((1 + numwords) * sizeof(char *)); 6
+== == == =
+s = malloc((1 + numwords) * sizeof(char *));
 >>>>>>> 0e43243acdc6d58ca914331ff09d2b3a82d5b366
 if (!s)
 return (NULL);
@@ -75,7 +76,7 @@ i++;
 k = 0;
 while (str[i + k] != d && str[i + k] && str[i + k] != d)
 k++;
-s[j] = malloc((k + 1) *sizeof(char));
+s[j] = malloc((k + 1) * sizeof(char));
 if (!s[j])
 {
 for (k = 0; k < j; k++)
